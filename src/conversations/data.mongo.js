@@ -20,6 +20,9 @@ function _loadAsync(_data) {
   return waitAsync(_.cloneDeep(_data));
 }
 
+/**
+ * Classe qui permet de gérer les opérations en base de données
+ */
 class Data {
   constructor() {
   }
@@ -33,26 +36,39 @@ class Data {
     }
   }
 
+  /**
+   * Récupère toutes les conversations
+   */
   async getConversationsAsync() {
     await this.connect();
     let conversations = await this.db.collection("conversations").find().toArray();
     return _loadAsync(conversations).then(() => conversations);
   }
 
+  /**
+   * Récupère la conversation avec l'id donné et renvoie ses données
+   * @param id 
+   */
   async getConversationAsync(id) {
     await this.connect();
     let conversations = await this.db.collection("conversations").find({ _id: mongoose.Types.ObjectId(id) }).toArray();
     return _loadAsync(conversations[0]).then(() => conversations[0]);
   }
 
+  /**
+   * Ajoute un message dans la conversation à la suite des autres messages
+   * @param id 
+   * @param message 
+   * @param idLastMessage 
+   */
   async addMessageAsync(id, message, idLastMessage) {
     await this.connect();
     let document = await this.db.collection("conversations").updateOne(
-      { _id: mongoose.Types.ObjectId(id) },
+      { _id: mongoose.Types.ObjectId(id) }, // id de la conversation
       {
-        $push: {
+        $push: { // ajout dans le tableau messages de la conversation
           "messages": {
-            id: parseInt(idLastMessage, 10) + 1,
+            id: parseInt(idLastMessage, 10) + 1, // incrémentation de l'id
             auteur: message.auteur,
             contenu: message.contenu,
             couleur: message.couleur
@@ -60,7 +76,7 @@ class Data {
         }
       }
     );
-    return _loadAsync(document.modifiedCount).then(() => document.modifiedCount);
+    return _loadAsync(document.modifiedCount).then(() => document.modifiedCount); // modifiedCount > 0 : ajout réussi
   }
 }
 
