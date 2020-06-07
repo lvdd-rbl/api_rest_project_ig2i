@@ -21,7 +21,7 @@ class Conversations {
             return;
           }
         }
-        response.status(404).json({
+        response.status(404).json({ // pas de conversation : erreur 404 renvoyée
           key: "entities.not.found"
         });
       });
@@ -31,7 +31,7 @@ class Conversations {
      * Récupère une conversation
      */
     app.get("/api/conversations/:id/:idLastMessage", function (request, response) {
-      let id = request.params.id;
+      let id = request.params.id; // paramètre de l'url
       let idCurrentLastMessage = request.params.idLastMessage;
       return data.getConversationAsync(id).then(function (conversation) {
         if (conversation !== undefined) {
@@ -60,6 +60,7 @@ class Conversations {
 
       let message = body;
       message.couleur = request.session.couleur;
+
       message.auteur = request.session.login;
       console.log(message);
 

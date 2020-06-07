@@ -19,6 +19,9 @@ function _loadAsync(_data) {
   return waitAsync(_.cloneDeep(_data));
 }
 
+/**
+ * Classe qui permet de gérer les opérations en base de données
+ */
 class Data {
   constructor() { }
 
@@ -34,7 +37,7 @@ class Data {
   async loginAsync(login, passe) {
     await this.connect();
     let users = await this.db.collection("users").find({ login, passe }).toArray();
-    return _loadAsync(users[0]).then(() => users[0]);
+    return _loadAsync(users[0]).then(() => users[0]); // récupère le premier user trouvé
   }
 }
 

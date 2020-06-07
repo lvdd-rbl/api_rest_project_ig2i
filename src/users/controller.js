@@ -19,11 +19,12 @@ class Users {
 
       let login =decryptedData.login;
       let passe =decryptedData.passe;
+
       return data.loginAsync(login, passe).then(function (user) {
         sess.login = login; // enregistrement variables de session
         sess.passe = passe;
         sess.couleur = user.couleur;
-        response.status(200).json({ "connecte": true, id: user._id });
+        response.status(200).json({ "connecte": true, id: user._id }); // renvoi de la réponse
       })
     });
   }
