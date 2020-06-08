@@ -8,6 +8,12 @@ class Conversations {
   configure(app) {
     const data = this.data;
 
+    data.getConversationsAsync().then(function(conversations) {
+      if(!conversations.length) {
+        data.addConversations();
+      }
+    });
+
     /**
      * Récupère l'ensemble des conversations
      */
