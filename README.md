@@ -1,21 +1,22 @@
 # API Rest
 
 ## Installation et développement
-Installer Node.js dernière version LTS : https://nodejs.org/en/download/
-Vérifier l'installation et la version de node.js :
+- Installer Node.js dernière version LTS : https://nodejs.org/en/download/
+- Vérifier l'installation et la version de node.js :
 ```
 node -v
 ```
 
 - Installer MongoDB : https://www.mongodb.com/download-center/community
-- Installer MongoDB Compass Community si non installé avec MongoDB : https://www.mongodb.com/download-center/compass
-- Créer les collections "conversations" et "users" dans la base "local"
-- Insérer les documents des collections respectives : "Add Data" => "Import file" => Sélectionner le fichier **json** correspondant dans le dossier **db/**
 
 Une fois le projet clôné en local :
+- Télécharger les dépendances node.js via le logiciel npm :
 ```
-npm install => télécharge les dépendances node.js via le logiciel npm
-npm run start => démarre le serveur
+npm install
+```
+- Démarrer le serveur :
+```
+npm run start
 ```
 
 ## Memo 

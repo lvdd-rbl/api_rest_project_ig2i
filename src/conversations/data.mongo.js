@@ -30,10 +30,23 @@ class Data {
   async connect() {
     try {
       var connection = await MongoClient.connect(url, { useNewUrlParser: true });
-      this.db = connection.db('local');
+      this.db = connection.db('L4-CHAT-SI');
     }
     catch (ex) {
     }
+  }
+
+  /**
+   * Fixtures
+   */
+  async addConversations() {
+    await this.connect();
+    let conversations = [
+      {"active":1,"theme":"Les cours en IAM","messages":[{"auteur":"lucas","contenu":"Que pensez-vous des cours en IAM ?","id":1,"couleur":"#ff0000"}]},
+      {"theme":"Ballon d'Or","active":1,"messages":[{"auteur":"luis","contenu":"D'après vous, qui sera Ballon d'Or ?","id":1,"couleur":"#0000ff"},{"auteur":"lucas","contenu":"Je sais pas","id":2,"couleur":"#ff0000"}]}
+    ];
+    let document = await this.db.collection("conversations").insertMany(conversations);
+    return _loadAsync(document).then(() => document.result);
   }
 
   /**
