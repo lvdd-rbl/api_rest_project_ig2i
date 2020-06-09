@@ -12,19 +12,19 @@
     "start": "nodemon ./src/server.js"
   },
   "dependencies": {
-    "bluebird": "^3.7.2", // gère les promises
-    "body-parser": "^1.19.0", // gère les contenus des requêtes HTTP
-    "express": "^4.16.4", // middleware nodejs
-    "express-session": "^1.17.1", // gère les variables de session
-    "jsonwebtoken": "^8.5.1", // JWT
-    "lodash": "^4.17.15", // librairie de fonctions utilitaires
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
     "mongodb": "^3.5.5",
-    "mongoose": "^5.9.16" // gère mongodb
+    "mongoose": "^5.9.16"
   },
   "devDependencies": {
-    "eslint": "^5.16.0", // outil de formatage 
-    "nodemon": "^1.19.0", // permet de redémarrer le serveur automatiquement
-    "supertest": "^4.0.2", // outils de test
+    "eslint": "^5.16.0",
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2",
     "watch": "latest"
   },
   "main": "src/server.js",
