@@ -1,2 +1,0 @@
-{"active":{"$numberInt":"1"},"theme":"Les cours en IAM","messages":[{"auteur":"lucas","contenu":"Que pensez-vous des cours en IAM ?","id":{"$numberInt":"1"},"couleur":"#ff0000"}]}
-{"theme":"Ballon d'Or","active":{"$numberInt":"1"},"messages":[{"auteur":"luis","contenu":"D'après vous, qui sera Ballon d'Or ?","id":{"$numberInt":"1"},"couleur":"#0000ff"},{"auteur":"lucas","contenu":"Je sais pas","id":{"$numberInt":"2"},"couleur":"#ff0000"}]}
